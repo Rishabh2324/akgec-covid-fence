@@ -14,6 +14,10 @@ class GeoMap {
 
             }
         );
+        this.map.setCenter({ lat: 25.461138599999998, lng: 78.55616959999999 })
+        setTimeout(() => {
+            this.map.setZoom(20)
+        }, 3000);
         const mapEvent = new H.mapevents.MapEvents(this.map);
         const behavior = new H.mapevents.Behavior(mapEvent);
         this.geofencing = this.platform.getGeofencingService();

@@ -1,0 +1,10 @@
+{
+    "infectedPerson": [
+        {
+        "id":1,
+        "username": "John Mathews",
+        "aadharNumber": "678392185408",
+        "email":"john@gmail.com"
+      }
+    ]
+}

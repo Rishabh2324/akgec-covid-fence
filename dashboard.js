@@ -31,10 +31,6 @@ function showTime() {
 
 showTime();
 
-function login() {
-  window.location.replace("/index.html");
-}
-
 function getUserData() {
   $.ajax({
     url: dbUrl,

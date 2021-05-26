@@ -106,13 +106,13 @@ body {
 
 .clock {
   position: absolute;
-  top: 10px;
+  top: 14px;
   right: 15px;
   font-weight: 700;
   color: #000000;
   font-size: 20px;
   font-family: Orbitron;
-  letter-spacing: 7px;
+  letter-spacing: 3px;
 }
 
 .safe {
@@ -249,5 +249,12 @@ body {
   }
   .form-label-group input:-ms-input-placeholder {
     color: #777;
+  }
+}
+
+
+@media(max-width:768px){
+  .h2-resp {
+    font-size: medium;
   }
 }

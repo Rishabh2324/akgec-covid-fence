@@ -42,11 +42,13 @@ function getUserData() {
       userData = data.data
       var tableHTML = null
        userData.map(item => {
-         if (window.location.pathname == "/reports.html") {
+         if (window.location.pathname.includes("reports.html") != 0) {
           tableHTML= `<tr><td>${item.username}</td><td>Yes</td><td>${item.aadharNumber}</td><td>No</td><td class="safe">Safe</td><td><a href="report.pdf" download class="btn btn-sm btn-primary">Download Report</a></td></tr>`
-         }else {
-           tableHTML= `<tr><td>${item.username}</td><td>Yes</td><td>${item.aadharNumber}</td><td>No</td><td class="safe">Safe</td></tr>`
-         }
+         }else if (window.location.pathname.includes("user.html") != 0) 
+         {
+          tableHTML= `<tr><td>${item.username}</td><td>Yes</td><td>${item.aadharNumber}</td><td>No</td><td class="safe">Safe</td><td><a href="index.html?points=${item.geofence}" class="btn btn-sm btn-primary">Track</a></td></tr>`
+        }
+           
          $('#tableBody').append(tableHTML)
 
       })
@@ -57,13 +59,14 @@ function getUserData() {
   });
 }
 
-function signUp(username,aadharNumber, email) {
+function signUp(username,aadharNumber, email, geofencePoints) {
   document.getElementById("tabl")
   let data = {
     id:1,
     username: username,
     aadharNumber: aadharNumber,
     email: email,
+    geofence:geofencePoints
   };
 
   $.ajax({

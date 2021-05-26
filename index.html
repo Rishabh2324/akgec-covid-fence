@@ -120,12 +120,16 @@
                 const start = async () => {
                     const map = new GeoMap(document.getElementById("map"));
                     const lineString = new H.geo.LineString();
-                    lineString.pushPoint({ lat: 25.461203, lng: 78.556102 });
-                    lineString.pushPoint({ lat: 25.461209, lng: 78.556270 });
-                    lineString.pushPoint({ lat: 25.461054, lng: 78.556299 });
-                    lineString.pushPoint({ lat: 25.461041, lng: 78.556096 });
+
+                    var seachParam = window.location.search
+                    var line  = new URLSearchParams(seachParam).get("points")
+                    var points = line.split('$')
+                    points.forEach(item => {
+                      item = eval('(' + item + ')');
+                      return lineString.pushPoint(item);
+                    })
                     const polygon = new H.map.Polygon(lineString,{
-                        style: {fillColor: 'rgba(255, 0, 0, .4)',linewidth:0}
+                        style: {fillColor: 'rgba(255, 0, 0, .4)',linewidth:5}
                     });
                     console.log(map.polygonToWKT(polygon));
                     map.draw(polygon);
